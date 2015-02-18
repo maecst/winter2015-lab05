@@ -12,26 +12,29 @@ if (!defined('BASEPATH'))
  */
 class Caboose {
 
-    var $result;   // where the finished form will be stored
-    var $CI; // handle to CodeIgniter instance
-    // define the components
-    var $components = array(
-         'lightbox' => array(
+    var $result;    // where the finished form will be stored
+    var $CI;        // handle to CodeIgniter instance
+    
+// define the components
+    var $components = array
+    (
+        'lightbox' => array (
             'css' => 'jquery.lightbox-0.5.css',
             'js' => 'jquery.lightbox-0.5.min.js',
-            'template' => 'lightbox'
-        ),
-       'confirm' => array(
+            'template' => 'lightbox'),
+        'confirm' => array(
             'css' => '',
             'js' => 'bootstrap-confirmation.js',
-            'template' => 'confirm'
-        ),
+            'template' => 'confirm'),
+        'jrating' => array('css' => 'jRating.jquery.css', 
+            'js' => 'jRating.jquery.js', 
+            'template' => 'jrating'),
      );
     // provide for any fields they need. this should be indexed [component][field]
     var $fields = array();
     // provide for any field validations needed
     var $validations = array();
-
+    
     /**
      * Constructor - Start the ball rolling.
      */
