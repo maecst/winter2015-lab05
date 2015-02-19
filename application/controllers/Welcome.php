@@ -25,7 +25,7 @@ class Welcome extends Application {
     $choice = rand(1, $this->quotes->size());
 	$this->data = array_merge($this->data, (array) $this->quotes->get($choice));
     
-    $this->caboose->needed('jrating', 'hollywood');
+    $this->caboose->needed('ratingWidget', 'hollywood');
     $this->data['average'] = 
             ($this->data['vote_count'] > 0) 
             ? 
