@@ -6,3 +6,4 @@
         <div class="hollywood" data-average="{average}" data-id="{id}"></div>
     </div>
 </div>
+<a href="../models/Quotes.php"></a>
