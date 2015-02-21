@@ -1,9 +1,9 @@
 <?php
 
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Controller for the admin module to allow for quote maintenance.
+ * 
+ * controllers/Admin.php
  */
 class Admin extends Application {
     
@@ -11,7 +11,7 @@ class Admin extends Application {
         parent::__construct();
         $this->load->helper('formfields');
     }
-    
+     
     function index() {
         $this->data['pagebody'] = 'admin_list';
         $this->data['title'] = 'Quotations Maintenance';
@@ -43,13 +43,12 @@ class Admin extends Application {
         $this->data['fwho'] = makeTextField('Author', 'who', $quote->who);
         $this->data['fmug'] = makeTextField('Picture', 'mug', $quote->mug);
         $this->data['fwhat'] = makeTextField('The Quote', 'what', $quote->what);
-        $this->data['pagebody'] = 'quote_edit';
-      
+        $this->data['pagebody'] = 'quote_edit';      
         $this->data['fsubmit'] = makeSubmitButton(
                 'Process Quote', 
                 "Click here to validate the quotation idea", 
                 'btn-success');
-             
+        
         $this->render();
     }
     
@@ -63,10 +62,11 @@ class Admin extends Application {
         $record->mug = $this->input->post('mug');
         $record->what = $this->input->post('what');
         
-        // validation
+        // validate that author is provided
         if (empty($record->who)) {
             $this->errors[] = 'You must specify an author.';
         }
+        // validate that quotation is at least 20 characters long
         if(strlen($record->what) < 20) {
             $this->errors[] = 'A quotation must be at least 20 characters long.';
         }
@@ -83,7 +83,7 @@ class Admin extends Application {
         } else {
             $this->quotes->update($record);
         }
-
+        
         redirect('/admin');
     }
 }

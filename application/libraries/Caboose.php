@@ -26,6 +26,7 @@ class Caboose {
             'css' => '',
             'js' => 'bootstrap-confirmation.js',
             'template' => 'confirm'),
+        // add rating widget
         'ratingWidget' => array(
             'css' => 'jRating.jquery.css', 
             'js' => 'jRating.jquery.js', 
